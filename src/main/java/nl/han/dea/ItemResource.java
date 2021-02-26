@@ -10,7 +10,13 @@ public class ItemResource {
 
     @GET
     @Produces("text/plain")
-    public String items() {
+    public String itemsAsText() {
         return "bread, butter";
+    }
+
+    @GET
+    @Produces("application/json")
+    public String itemsAsJson(){
+        return "[\"bread\", \"butter\"]";
     }
 }
