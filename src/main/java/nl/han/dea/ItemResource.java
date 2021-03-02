@@ -5,6 +5,7 @@ import nl.han.dea.services.dto.ItemDTO;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 import java.util.List;
@@ -20,13 +21,23 @@ public class ItemResource {
 
     @GET
     @Produces("text/plain")
-    public String itemsAsText() {
+    public String getAllItemsAsText() {
         return "bread, butter";
     }
 
     @GET
     @Produces("application/json")
-    public Response itemsAsJson(){
+    public Response getAllItemsAsJson(){
         return Response.ok().entity(itemService.getAll()).build();
     }
+
+    @GET
+    @Path("{id}")
+    @Produces("application/json")
+    public Response getItemByIdAsJson(@PathParam("id") int id){
+        return Response.ok().entity(itemService.getItem(id)).build();
+    }
+
+
 }
+
