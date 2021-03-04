@@ -45,6 +45,13 @@ public class ItemResource {
         return Response.status(Response.Status.CREATED).build();
     }
 
+    @DELETE
+    @Path("{id}")
+    public Response deleteItem(@PathParam("id") int id){
+        itemService.deleteItem(id);
+        return Response.ok().build();
+    }
+
 
 }
 
