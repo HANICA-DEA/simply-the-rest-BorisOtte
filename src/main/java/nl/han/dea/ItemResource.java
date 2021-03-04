@@ -1,7 +1,9 @@
 package nl.han.dea;
 
+import com.sun.mail.imap.protocol.Item;
 import nl.han.dea.services.ItemService;
 import nl.han.dea.services.dto.ItemDTO;
+import nl.han.dea.services.exceptions.ItemNotAvailableException;
 
 import javax.ejb.Singleton;
 import javax.ws.rs.*;
